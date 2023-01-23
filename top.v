@@ -1,17 +1,14 @@
-module top #(
-	parameter UART_DATA_WIDTH = 8, 
-	parameter BAUD_RATE = 115200
-)(
+module top(
 	// Keys
-	input       [3:0]      KEY,
+	input       [3:0]     KEY,
 	
 	// 50 MHz Clock
-	input 			  	CLOCK_50,
+	input 			  CLOCK_50,
 	
 	// Debug LEDS
 	output		[17:0]    LEDR, 
 	output       [7:0]    LEDG,
-	
+
 	input  wire rxd,
 	output wire txd
 
@@ -19,54 +16,91 @@ module top #(
 
 // Basic wires
 wire clk;
+wire rst;
+wire send;
 
 // Basic wires assignments
 assign clk = CLOCK_50;
 
-// UART wires 
-wire       tx_start;
-wire       tx_busy;
-wire       tx_done;
-wire       rx_ready;
+// RAM parameters
+parameter RAM_DATA_WIDTH = 8;
+parameter RAM_ADDR_WIDTH = 8;
 
-wire       [7:0] tx_data;
-wire       [7:0] rx_data;
+// RAM wires
+wire [(RAM_DATA_WIDTH-1):0] ram_data;
+wire [(RAM_ADDR_WIDTH-1):0] ram_addr;
+wire [(RAM_DATA_WIDTH-1):0] ram_q;
+wire ram_we;
 
+// RAM is used for saving the received data, possibly 
+ram #(.DATA_WIDTH(RAM_DATA_WIDTH), .ADDR_WIDTH(RAM_ADDR_WIDTH)) ram1 (
+	.data(ram_data),
+	.addr(ram_addr),
+	.we(ram_we), 
+	.clk(clk),
+	.q(ram_q)
+);
 
-// UART regs
-reg [7:0]  tx_data_m = 8'hf1;
-reg [7:0]  rx_data_m = 8'h00; 
-reg               	rx_rdy_clr;
+// Message is assumed to be 512 bits long block containing
+// 448 bit possibly padded message || 64-bit length of the message before the padding bits were added
+// See rfc1321 
 
-// Debug LEDS assign
-assign LEDG[7] = tx_start;
-assign LEDG[6] = tx_busy;
-assign LEDG[5] = tx_done;
+parameter ADDR_BLOCK0  = 8'h00;
+parameter ADDR_BLOCK64 = 8'h3f;
 
-assign LEDG[0] = rx_rdy_clr;
-assign LEDG[1] = rx_ready;
+parameter ADDR_DIGEST0   = 8'h40;
+parameter ADDR_DIGEST16  = 8'h4f;
 
-assign LEDR[17:10] = rx_data_m[7:0];
-assign LEDR[9:2] = tx_data_m[7:0];
+wire uart_busy;
+wire uart_enable;
 
+// 0 - receive
+// 1 - send
+reg uart_mode = 1'b0;
+reg [(RAM_ADDR_WIDTH-1):0] addr_from;
+reg [(RAM_ADDR_WIDTH-1):0] addr_to;
 
-assign tx_start = !KEY[0];
-assign tx_data[7:0] = tx_data_m[7:0];
+// When we reset, we expect 512 bit message from UART and Invalidate anything previously
+// computed or saved in memory, because it will be overwritten
 
-always @(posedge rx_ready)
+assign rst  = !KEY[0];
+assign send = !KEY[1];
+
+always @(posedge clk) 
 begin
-	rx_data_m <= rx_data;
-	rx_rdy_clr <= 1'b1;
+		if (rst) begin
+			uart_mode <= 1'b0;
+			addr_from <= ADDR_BLOCK0;
+			addr_to   <= ADDR_BLOCK64;
+		end else	if (send) begin
+			uart_mode <= 1'b1;
+			addr_from <= ADDR_BLOCK0;
+			addr_to   <= ADDR_BLOCK64;
+		end
 end
 
-uart u1(
-.din(tx_data),
-.wr_en(tx_start),
-.clk_50m(CLOCK_50),
-.tx(txd),
-.tx_busy(tx_busy),
-.rx(rxd),
-.rdy(rx_ready),
-.rdy_clr(rx_rdy_clr),
-.dout(rx_data));
+assign uart_enable = (rst) || (send);
+
+
+uart_manager #(.ADDR_WIDTH(RAM_ADDR_WIDTH)) uart_mng1
+(
+	.clk(clk),
+	.rst(rst),
+	.txd(txd),
+	.rxd(rxd),
+	.enable(uart_enable),
+	.mode(uart_mode),
+	.addr_from(addr_from),
+	.addr_to(addr_to),
+	// Ram runs on the same clock
+	.ram_data(ram_data),
+	.ram_addr(ram_addr),
+	.ram_we(ram_we), 
+	.ram_q(ram_q),
+	.busy(uart_busy),
+	.dbg_ledr(LEDR),
+	.dbg_ledg(LEDG)
+);
+
 endmodule
+

@@ -1,6 +1,0 @@
-[submodule "uart"]
-	path = uart
-	url = https://github.com/jamieiles/uart.git
-[submodule "md5"]
-	path = md5
-	url = https://github.com/Netnod/md5.git

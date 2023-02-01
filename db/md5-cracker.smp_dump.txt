@@ -1,0 +1,34 @@
+
+State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|fsm_pstate
+Name fsm_pstate.din3 fsm_pstate.din2 fsm_pstate.din1 fsm_pstate.din0 fsm_pstate.response fsm_pstate.wait4ack fsm_pstate.request fsm_pstate.dout3 fsm_pstate.dout2 fsm_pstate.dout1 fsm_pstate.dout0 fsm_pstate.addr_high fsm_pstate.addr_low fsm_pstate.cmd 
+fsm_pstate.cmd 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+fsm_pstate.addr_low 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+fsm_pstate.addr_high 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+fsm_pstate.dout0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+fsm_pstate.dout1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+fsm_pstate.dout2 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+fsm_pstate.dout3 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+fsm_pstate.request 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+fsm_pstate.wait4ack 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+fsm_pstate.response 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+fsm_pstate.din0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+fsm_pstate.din1 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+fsm_pstate.din2 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+fsm_pstate.din3 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate
+Name tx_pstate.stopbit tx_pstate.paritybit tx_pstate.databits tx_pstate.startbit tx_pstate.txsync tx_pstate.idle 
+tx_pstate.idle 0 0 0 0 0 0 
+tx_pstate.txsync 0 0 0 0 1 1 
+tx_pstate.startbit 0 0 0 1 0 1 
+tx_pstate.databits 0 0 1 0 0 1 
+tx_pstate.paritybit 0 1 0 0 0 1 
+tx_pstate.stopbit 1 0 0 0 0 1 
+
+State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate
+Name fsm_pstate.stopbit fsm_pstate.paritybit fsm_pstate.databits fsm_pstate.startbit fsm_pstate.idle 
+fsm_pstate.idle 0 0 0 0 0 
+fsm_pstate.startbit 0 0 0 1 1 
+fsm_pstate.databits 0 0 1 0 1 
+fsm_pstate.paritybit 0 1 0 0 1 
+fsm_pstate.stopbit 1 0 0 0 1 

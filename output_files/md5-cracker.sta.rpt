@@ -1,0 +1,1068 @@
+TimeQuest Timing Analyzer report for md5-cracker
+Wed Feb 01 20:07:56 2023
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. TimeQuest Timing Analyzer Summary
+  3. Parallel Compilation
+  4. Clocks
+  5. Slow Model Fmax Summary
+  6. Slow Model Setup Summary
+  7. Slow Model Hold Summary
+  8. Slow Model Recovery Summary
+  9. Slow Model Removal Summary
+ 10. Slow Model Minimum Pulse Width Summary
+ 11. Slow Model Setup: 'CLOCK_50'
+ 12. Slow Model Hold: 'CLOCK_50'
+ 13. Slow Model Minimum Pulse Width: 'CLOCK_50'
+ 14. Setup Times
+ 15. Hold Times
+ 16. Clock to Output Times
+ 17. Minimum Clock to Output Times
+ 18. Fast Model Setup Summary
+ 19. Fast Model Hold Summary
+ 20. Fast Model Recovery Summary
+ 21. Fast Model Removal Summary
+ 22. Fast Model Minimum Pulse Width Summary
+ 23. Fast Model Setup: 'CLOCK_50'
+ 24. Fast Model Hold: 'CLOCK_50'
+ 25. Fast Model Minimum Pulse Width: 'CLOCK_50'
+ 26. Setup Times
+ 27. Hold Times
+ 28. Clock to Output Times
+ 29. Minimum Clock to Output Times
+ 30. Multicorner Timing Analysis Summary
+ 31. Setup Times
+ 32. Hold Times
+ 33. Clock to Output Times
+ 34. Minimum Clock to Output Times
+ 35. Setup Transfers
+ 36. Hold Transfers
+ 37. Report TCCS
+ 38. Report RSKM
+ 39. Unconstrained Paths
+ 40. TimeQuest Timing Analyzer Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; TimeQuest Timing Analyzer Summary                                                      ;
++--------------------+-------------------------------------------------------------------+
+; Quartus II Version ; Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition ;
+; Revision Name      ; md5-cracker                                                       ;
+; Device Family      ; Cyclone II                                                        ;
+; Device Name        ; EP2C35F672C6                                                      ;
+; Timing Models      ; Final                                                             ;
+; Delay Model        ; Combined                                                          ;
+; Rise/Fall Delays   ; Unavailable                                                       ;
++--------------------+-------------------------------------------------------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 12     ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Clocks                                                                                                                                                                               ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; Clock Name ; Type ; Period ; Frequency  ; Rise  ; Fall  ; Duty Cycle ; Divide by ; Multiply by ; Phase ; Offset ; Edge List ; Edge Shift ; Inverted ; Master ; Source ; Targets      ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+; CLOCK_50   ; Base ; 1.000  ; 1000.0 MHz ; 0.000 ; 0.500 ;            ;           ;             ;       ;        ;           ;            ;          ;        ;        ; { CLOCK_50 } ;
++------------+------+--------+------------+-------+-------+------------+-----------+-------------+-------+--------+-----------+------------+----------+--------+--------+--------------+
+
+
++--------------------------------------------------+
+; Slow Model Fmax Summary                          ;
++------------+-----------------+------------+------+
+; Fmax       ; Restricted Fmax ; Clock Name ; Note ;
++------------+-----------------+------------+------+
+; 285.55 MHz ; 285.55 MHz      ; CLOCK_50   ;      ;
++------------+-----------------+------------+------+
+This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
+
+
++-----------------------------------+
+; Slow Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; CLOCK_50 ; -2.502 ; -269.109      ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Slow Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.391 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Slow Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Slow Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Slow Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; CLOCK_50 ; -1.380 ; -225.380           ;
++----------+--------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Setup: 'CLOCK_50'                                                                                                    ;
++--------+----------------------------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+---------------+--------------+-------------+--------------+------------+------------+
+; -2.502 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.541      ;
+; -2.502 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.541      ;
+; -2.502 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.541      ;
+; -2.502 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.541      ;
+; -2.502 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.541      ;
+; -2.502 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.541      ;
+; -2.496 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.534      ;
+; -2.496 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.534      ;
+; -2.496 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.534      ;
+; -2.496 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.534      ;
+; -2.496 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.534      ;
+; -2.496 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.534      ;
+; -2.496 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.534      ;
+; -2.444 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.483      ;
+; -2.444 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.483      ;
+; -2.444 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.483      ;
+; -2.444 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.483      ;
+; -2.444 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.483      ;
+; -2.444 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.483      ;
+; -2.438 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.476      ;
+; -2.438 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.476      ;
+; -2.438 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.476      ;
+; -2.438 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.476      ;
+; -2.438 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.476      ;
+; -2.438 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.476      ;
+; -2.438 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.476      ;
+; -2.355 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.394      ;
+; -2.355 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.394      ;
+; -2.355 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.394      ;
+; -2.355 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.394      ;
+; -2.355 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.394      ;
+; -2.355 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.394      ;
+; -2.349 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.387      ;
+; -2.349 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.387      ;
+; -2.349 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.387      ;
+; -2.349 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.387      ;
+; -2.349 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.387      ;
+; -2.349 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.387      ;
+; -2.349 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.387      ;
+; -2.343 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.383      ;
+; -2.343 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.383      ;
+; -2.343 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.383      ;
+; -2.343 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.383      ;
+; -2.343 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.383      ;
+; -2.343 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.383      ;
+; -2.337 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.376      ;
+; -2.337 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.376      ;
+; -2.337 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.376      ;
+; -2.337 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.376      ;
+; -2.337 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.376      ;
+; -2.337 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.376      ;
+; -2.337 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.376      ;
+; -2.334 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.374      ;
+; -2.334 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.374      ;
+; -2.334 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.374      ;
+; -2.334 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.374      ;
+; -2.334 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.374      ;
+; -2.334 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 3.374      ;
+; -2.328 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.367      ;
+; -2.328 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.367      ;
+; -2.328 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.367      ;
+; -2.328 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.367      ;
+; -2.328 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.367      ;
+; -2.328 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.367      ;
+; -2.328 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 3.367      ;
+; -2.309 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.347      ;
+; -2.309 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.347      ;
+; -2.309 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.347      ;
+; -2.309 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.347      ;
+; -2.309 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.347      ;
+; -2.309 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.347      ;
+; -2.303 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.340      ;
+; -2.303 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.340      ;
+; -2.303 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.340      ;
+; -2.303 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.340      ;
+; -2.303 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.340      ;
+; -2.303 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.340      ;
+; -2.303 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.340      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[1]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[25] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[28] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.268 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[31] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.306      ;
+; -2.263 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.301      ;
+; -2.263 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.301      ;
+; -2.263 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.301      ;
+; -2.263 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.301      ;
+; -2.263 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.301      ;
+; -2.263 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 3.301      ;
+; -2.257 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.294      ;
+; -2.257 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.294      ;
+; -2.257 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.294      ;
+; -2.257 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.294      ;
+; -2.257 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.294      ;
+; -2.257 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.294      ;
+; -2.257 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.001      ; 3.294      ;
++--------+----------------------------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Hold: 'CLOCK_50'                                                                                                                                                                                                                                                   ;
++-------+------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                                      ; To Node                                                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|fsm_pstate.cmd                                                             ; UART2WBM:uart2wbm_i|fsm_pstate.cmd                                                             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|fsm_pstate.response                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.response                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.txsync                             ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.txsync                             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.databits                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.databits                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.391 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.657      ;
+; 0.516 ; UART2WBM:uart2wbm_i|dout_reg[29]                                                               ; debug_reg[29]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.782      ;
+; 0.516 ; wb_dout[7]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[7]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.782      ;
+; 0.519 ; UART2WBM:uart2wbm_i|dout_reg[27]                                                               ; debug_reg[27]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.785      ;
+; 0.519 ; UART2WBM:uart2wbm_i|dout_reg[4]                                                                ; debug_reg[4]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.785      ;
+; 0.519 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.txsync                             ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.785      ;
+; 0.520 ; UART2WBM:uart2wbm_i|dout_reg[24]                                                               ; debug_reg[24]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.786      ;
+; 0.521 ; UART2WBM:uart2wbm_i|dout_reg[2]                                                                ; debug_reg[2]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.787      ;
+; 0.521 ; UART2WBM:uart2wbm_i|dout_reg[26]                                                               ; debug_reg[26]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.787      ;
+; 0.521 ; UART2WBM:uart2wbm_i|dout_reg[30]                                                               ; debug_reg[30]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.787      ;
+; 0.522 ; UART2WBM:uart2wbm_i|dout_reg[1]                                                                ; debug_reg[1]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.788      ;
+; 0.533 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.799      ;
+; 0.534 ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_synced_n                                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.800      ;
+; 0.535 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ; UART2WBM:uart2wbm_i|addr_reg[9]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.801      ;
+; 0.536 ; UART2WBM:uart2wbm_i|fsm_pstate.request                                                         ; wb_ack                                                                                         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.802      ;
+; 0.538 ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_synced_n                                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.804      ;
+; 0.539 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[1]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.805      ;
+; 0.540 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.806      ;
+; 0.541 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.807      ;
+; 0.544 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.810      ;
+; 0.551 ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; UART2WBM:uart2wbm_i|fsm_pstate.din3                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.817      ;
+; 0.555 ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; UART2WBM:uart2wbm_i|fsm_pstate.din2                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.821      ;
+; 0.556 ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; UART2WBM:uart2wbm_i|fsm_pstate.din1                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.822      ;
+; 0.655 ; wb_dout[4]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[4]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.921      ;
+; 0.662 ; UART2WBM:uart2wbm_i|fsm_pstate.dout2                                                           ; UART2WBM:uart2wbm_i|fsm_pstate.dout3                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.928      ;
+; 0.663 ; UART2WBM:uart2wbm_i|fsm_pstate.addr_low                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.addr_high                                                       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.929      ;
+; 0.664 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|DOUT_VLD                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.930      ;
+; 0.664 ; wb_dout[30]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[30]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.929      ;
+; 0.668 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ; UART2WBM:uart2wbm_i|addr_reg[8]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.934      ;
+; 0.668 ; UART2WBM:uart2wbm_i|fsm_pstate.din1                                                            ; UART2WBM:uart2wbm_i|fsm_pstate.din2                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.934      ;
+; 0.669 ; UART2WBM:uart2wbm_i|dout_reg[9]                                                                ; debug_reg[9]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.935      ;
+; 0.669 ; UART2WBM:uart2wbm_i|dout_reg[28]                                                               ; debug_reg[28]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.935      ;
+; 0.677 ; UART2WBM:uart2wbm_i|dout_reg[6]                                                                ; debug_reg[6]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.942      ;
+; 0.681 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ; UART2WBM:uart2wbm_i|addr_reg[13]                                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.947      ;
+; 0.683 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.949      ;
+; 0.692 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ; UART2WBM:uart2wbm_i|addr_reg[11]                                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.958      ;
+; 0.693 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[2]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.959      ;
+; 0.699 ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_meta_n                                                ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_synced_n                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.964      ;
+; 0.700 ; wb_dout[31]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[31]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.966      ;
+; 0.701 ; UART2WBM:uart2wbm_i|dout_reg[17]                                                               ; debug_reg[17]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.967      ;
+; 0.702 ; UART2WBM:uart2wbm_i|dout_reg[18]                                                               ; debug_reg[18]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.968      ;
+; 0.704 ; UART2WBM:uart2wbm_i|dout_reg[0]                                                                ; debug_reg[0]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.970      ;
+; 0.705 ; UART2WBM:uart2wbm_i|dout_reg[25]                                                               ; debug_reg[25]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.971      ;
+; 0.706 ; UART2WBM:uart2wbm_i|dout_reg[5]                                                                ; debug_reg[5]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.971      ;
+; 0.706 ; wb_dout[6]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[6]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.971      ;
+; 0.707 ; UART2WBM:uart2wbm_i|dout_reg[22]                                                               ; debug_reg[22]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.973      ;
+; 0.711 ; UART2WBM:uart2wbm_i|dout_reg[31]                                                               ; debug_reg[31]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.977      ;
+; 0.712 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ; UART2WBM:uart2wbm_i|addr_reg[4]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.979      ;
+; 0.713 ; wb_dout[3]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[3]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.978      ;
+; 0.721 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.databits                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.987      ;
+; 0.723 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ; UART2WBM:uart2wbm_i|addr_reg[14]                                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.989      ;
+; 0.725 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ; UART2WBM:uart2wbm_i|addr_reg[1]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.992      ;
+; 0.726 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.992      ;
+; 0.740 ; wb_dout[10]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[10]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.005      ;
+; 0.741 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.008      ;
+; 0.742 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.009      ;
+; 0.744 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 1.011      ;
+; 0.751 ; RST_SYNC:rst_sync_i|meta_reg                                                                   ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.017      ;
+; 0.752 ; wb_dout[28]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[28]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.017      ;
+; 0.755 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.020      ;
+; 0.758 ; wb_ack                                                                                         ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.024      ;
+; 0.760 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 1.025      ;
+; 0.761 ; debug_reg[17]                                                                                  ; wb_dout[17]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.027      ;
+; 0.764 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.030      ;
+; 0.768 ; UART2WBM:uart2wbm_i|fsm_pstate.dout1                                                           ; UART2WBM:uart2wbm_i|fsm_pstate.dout2                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.034      ;
+; 0.773 ; UART2WBM:uart2wbm_i|fsm_pstate.addr_high                                                       ; UART2WBM:uart2wbm_i|fsm_pstate.dout0                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.039      ;
+; 0.773 ; debug_reg[22]                                                                                  ; wb_dout[22]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.039      ;
+; 0.774 ; UART2WBM:uart2wbm_i|fsm_pstate.dout0                                                           ; UART2WBM:uart2wbm_i|fsm_pstate.dout1                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.040      ;
+; 0.779 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.045      ;
+; 0.780 ; UART2WBM:uart2wbm_i|fsm_pstate.din2                                                            ; UART2WBM:uart2wbm_i|fsm_pstate.din3                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.046      ;
+; 0.787 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.053      ;
+; 0.791 ; debug_reg[9]                                                                                   ; wb_dout[9]                                                                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.057      ;
+; 0.791 ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.response                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.057      ;
+; 0.792 ; debug_reg[19]                                                                                  ; wb_dout[19]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.058      ;
+; 0.792 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.058      ;
+; 0.799 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.065      ;
+; 0.800 ; debug_reg[18]                                                                                  ; wb_dout[18]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 1.066      ;
++-------+------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Slow Model Minimum Pulse Width: 'CLOCK_50'                                                                                                                                         ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                                                         ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                                                                                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|meta_reg                                                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|meta_reg                                                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|reset_reg                                                                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|reset_reg                                                                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|DIV_MARK                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|DIV_MARK                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[0]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[0]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[1]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[1]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[2]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[2]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[3]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[3]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[4]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[4]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|DOUT_VLD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|DOUT_VLD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[7]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[7]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_TXD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_TXD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[7]                                   ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; 2.854 ; 2.854 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; -2.624 ; -2.624 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_TXD  ; CLOCK_50   ; 6.476 ; 6.476 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_TXD  ; CLOCK_50   ; 6.476 ; 6.476 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------+
+; Fast Model Setup Summary          ;
++----------+--------+---------------+
+; Clock    ; Slack  ; End Point TNS ;
++----------+--------+---------------+
+; CLOCK_50 ; -0.671 ; -39.084       ;
++----------+--------+---------------+
+
+
++----------------------------------+
+; Fast Model Hold Summary          ;
++----------+-------+---------------+
+; Clock    ; Slack ; End Point TNS ;
++----------+-------+---------------+
+; CLOCK_50 ; 0.215 ; 0.000         ;
++----------+-------+---------------+
+
+
+-------------------------------
+; Fast Model Recovery Summary ;
+-------------------------------
+No paths to report.
+
+
+------------------------------
+; Fast Model Removal Summary ;
+------------------------------
+No paths to report.
+
+
++----------------------------------------+
+; Fast Model Minimum Pulse Width Summary ;
++----------+--------+--------------------+
+; Clock    ; Slack  ; End Point TNS      ;
++----------+--------+--------------------+
+; CLOCK_50 ; -1.380 ; -225.380           ;
++----------+--------+--------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Setup: 'CLOCK_50'                                                                                                    ;
++--------+----------------------------------+---------------+--------------+-------------+--------------+------------+------------+
+; Slack  ; From Node                        ; To Node       ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++--------+----------------------------------+---------------+--------------+-------------+--------------+------------+------------+
+; -0.671 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.707      ;
+; -0.671 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.707      ;
+; -0.671 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.707      ;
+; -0.671 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.707      ;
+; -0.671 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.707      ;
+; -0.671 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.707      ;
+; -0.668 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.703      ;
+; -0.668 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.703      ;
+; -0.668 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.703      ;
+; -0.668 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.703      ;
+; -0.668 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.703      ;
+; -0.668 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.703      ;
+; -0.668 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.703      ;
+; -0.648 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.684      ;
+; -0.648 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.684      ;
+; -0.648 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.684      ;
+; -0.648 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.684      ;
+; -0.648 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.684      ;
+; -0.648 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.684      ;
+; -0.645 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.680      ;
+; -0.645 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.680      ;
+; -0.645 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.680      ;
+; -0.645 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.680      ;
+; -0.645 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.680      ;
+; -0.645 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.680      ;
+; -0.645 ; UART2WBM:uart2wbm_i|addr_reg[10] ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.680      ;
+; -0.607 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.643      ;
+; -0.607 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.643      ;
+; -0.607 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.643      ;
+; -0.607 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.643      ;
+; -0.607 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.643      ;
+; -0.607 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.643      ;
+; -0.604 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.639      ;
+; -0.604 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.639      ;
+; -0.604 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.639      ;
+; -0.604 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.639      ;
+; -0.604 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.639      ;
+; -0.604 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.639      ;
+; -0.604 ; UART2WBM:uart2wbm_i|addr_reg[13] ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.639      ;
+; -0.592 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.629      ;
+; -0.592 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.629      ;
+; -0.592 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.629      ;
+; -0.592 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.629      ;
+; -0.592 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.629      ;
+; -0.592 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.629      ;
+; -0.589 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.625      ;
+; -0.589 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.625      ;
+; -0.589 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.625      ;
+; -0.589 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.625      ;
+; -0.589 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.625      ;
+; -0.589 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.625      ;
+; -0.589 ; UART2WBM:uart2wbm_i|addr_reg[5]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.625      ;
+; -0.583 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.620      ;
+; -0.583 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.620      ;
+; -0.583 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.620      ;
+; -0.583 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.620      ;
+; -0.583 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.620      ;
+; -0.583 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.005      ; 1.620      ;
+; -0.580 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.616      ;
+; -0.580 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.616      ;
+; -0.580 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.616      ;
+; -0.580 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.616      ;
+; -0.580 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.616      ;
+; -0.580 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.616      ;
+; -0.580 ; UART2WBM:uart2wbm_i|addr_reg[6]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.004      ; 1.616      ;
+; -0.576 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.611      ;
+; -0.576 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.611      ;
+; -0.576 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.611      ;
+; -0.576 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.611      ;
+; -0.576 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.611      ;
+; -0.576 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.611      ;
+; -0.573 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.607      ;
+; -0.573 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.607      ;
+; -0.573 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.607      ;
+; -0.573 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.607      ;
+; -0.573 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.607      ;
+; -0.573 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.607      ;
+; -0.573 ; UART2WBM:uart2wbm_i|addr_reg[0]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.607      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[2]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[1]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[25] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[21] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[12] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[4]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[28] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[15] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.566 ; UART2WBM:uart2wbm_i|addr_reg[9]  ; debug_reg[31] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.600      ;
+; -0.561 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[18] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.596      ;
+; -0.561 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[16] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.596      ;
+; -0.561 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[9]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.596      ;
+; -0.561 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[17] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.596      ;
+; -0.561 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[19] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.596      ;
+; -0.561 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[22] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.003      ; 1.596      ;
+; -0.558 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[26] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.592      ;
+; -0.558 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[24] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.592      ;
+; -0.558 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[0]  ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.592      ;
+; -0.558 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[11] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.592      ;
+; -0.558 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[27] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.592      ;
+; -0.558 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[29] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.592      ;
+; -0.558 ; UART2WBM:uart2wbm_i|addr_reg[1]  ; debug_reg[30] ; CLOCK_50     ; CLOCK_50    ; 1.000        ; 0.002      ; 1.592      ;
++--------+----------------------------------+---------------+--------------+-------------+--------------+------------+------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Hold: 'CLOCK_50'                                                                                                                                                                                                                                                   ;
++-------+------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; Slack ; From Node                                                                                      ; To Node                                                                                        ; Launch Clock ; Latch Clock ; Relationship ; Clock Skew ; Data Delay ;
++-------+------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|fsm_pstate.cmd                                                             ; UART2WBM:uart2wbm_i|fsm_pstate.cmd                                                             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|fsm_pstate.response                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.response                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.txsync                             ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.txsync                             ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.databits                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.databits                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.215 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.367      ;
+; 0.238 ; UART2WBM:uart2wbm_i|dout_reg[29]                                                               ; debug_reg[29]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.390      ;
+; 0.238 ; wb_dout[7]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[7]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.390      ;
+; 0.239 ; UART2WBM:uart2wbm_i|dout_reg[4]                                                                ; debug_reg[4]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.391      ;
+; 0.239 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.txsync                             ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.391      ;
+; 0.240 ; UART2WBM:uart2wbm_i|dout_reg[27]                                                               ; debug_reg[27]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.392      ;
+; 0.241 ; UART2WBM:uart2wbm_i|dout_reg[2]                                                                ; debug_reg[2]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.393      ;
+; 0.241 ; UART2WBM:uart2wbm_i|dout_reg[24]                                                               ; debug_reg[24]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.393      ;
+; 0.242 ; UART2WBM:uart2wbm_i|dout_reg[26]                                                               ; debug_reg[26]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.394      ;
+; 0.242 ; UART2WBM:uart2wbm_i|dout_reg[30]                                                               ; debug_reg[30]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.394      ;
+; 0.243 ; UART2WBM:uart2wbm_i|dout_reg[1]                                                                ; debug_reg[1]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.395      ;
+; 0.246 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ; UART2WBM:uart2wbm_i|addr_reg[9]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.398      ;
+; 0.247 ; UART2WBM:uart2wbm_i|fsm_pstate.request                                                         ; wb_ack                                                                                         ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.399      ;
+; 0.247 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.399      ;
+; 0.248 ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_synced_n                                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.400      ;
+; 0.251 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.403      ;
+; 0.252 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[1]     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.404      ;
+; 0.252 ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_synced_n                                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.404      ;
+; 0.252 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.404      ;
+; 0.253 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.405      ;
+; 0.256 ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; UART2WBM:uart2wbm_i|fsm_pstate.din3                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.408      ;
+; 0.259 ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; UART2WBM:uart2wbm_i|fsm_pstate.din2                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.411      ;
+; 0.260 ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; UART2WBM:uart2wbm_i|fsm_pstate.din1                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.412      ;
+; 0.307 ; wb_dout[4]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[4]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.459      ;
+; 0.311 ; wb_dout[30]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[30]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.464      ;
+; 0.314 ; UART2WBM:uart2wbm_i|dout_reg[9]                                                                ; debug_reg[9]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.466      ;
+; 0.315 ; UART2WBM:uart2wbm_i|dout_reg[28]                                                               ; debug_reg[28]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.466      ;
+; 0.318 ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_meta_n                                                ; UART2WBM:uart2wbm_i|UART:uart_i|uart_rxd_synced_n                                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.470      ;
+; 0.319 ; wb_dout[31]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[31]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.471      ;
+; 0.319 ; UART2WBM:uart2wbm_i|dout_reg[6]                                                                ; debug_reg[6]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.470      ;
+; 0.321 ; UART2WBM:uart2wbm_i|dout_reg[18]                                                               ; debug_reg[18]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.473      ;
+; 0.321 ; UART2WBM:uart2wbm_i|dout_reg[17]                                                               ; debug_reg[17]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.473      ;
+; 0.322 ; UART2WBM:uart2wbm_i|fsm_pstate.addr_low                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.addr_high                                                       ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.474      ;
+; 0.322 ; UART2WBM:uart2wbm_i|fsm_pstate.dout2                                                           ; UART2WBM:uart2wbm_i|fsm_pstate.dout3                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.474      ;
+; 0.322 ; UART2WBM:uart2wbm_i|dout_reg[0]                                                                ; debug_reg[0]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.475      ;
+; 0.323 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|DOUT_VLD                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.475      ;
+; 0.323 ; UART2WBM:uart2wbm_i|dout_reg[22]                                                               ; debug_reg[22]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.475      ;
+; 0.323 ; UART2WBM:uart2wbm_i|fsm_pstate.din1                                                            ; UART2WBM:uart2wbm_i|fsm_pstate.din2                                                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.475      ;
+; 0.324 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ; UART2WBM:uart2wbm_i|addr_reg[4]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.477      ;
+; 0.324 ; UART2WBM:uart2wbm_i|dout_reg[25]                                                               ; debug_reg[25]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.475      ;
+; 0.324 ; UART2WBM:uart2wbm_i|dout_reg[5]                                                                ; debug_reg[5]                                                                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.475      ;
+; 0.324 ; wb_dout[6]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[6]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.475      ;
+; 0.326 ; UART2WBM:uart2wbm_i|dout_reg[31]                                                               ; debug_reg[31]                                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.477      ;
+; 0.327 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ; UART2WBM:uart2wbm_i|addr_reg[8]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.479      ;
+; 0.330 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ; UART2WBM:uart2wbm_i|addr_reg[14]                                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.482      ;
+; 0.331 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.startbit                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.databits                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.483      ;
+; 0.332 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ; UART2WBM:uart2wbm_i|addr_reg[1]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.485      ;
+; 0.333 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.485      ;
+; 0.335 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ; UART2WBM:uart2wbm_i|addr_reg[13]                                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.487      ;
+; 0.338 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.490      ;
+; 0.339 ; wb_dout[3]                                                                                     ; UART2WBM:uart2wbm_i|din_reg[3]                                                                 ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.490      ;
+; 0.340 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.492      ;
+; 0.342 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ; UART2WBM:uart2wbm_i|addr_reg[11]                                                               ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.494      ;
+; 0.343 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[2]                                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.495      ;
+; 0.343 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.495      ;
+; 0.344 ; wb_dout[10]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[10]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; -0.001     ; 0.495      ;
+; 0.344 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.496      ;
+; 0.347 ; wb_dout[28]                                                                                    ; UART2WBM:uart2wbm_i|din_reg[28]                                                                ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.001      ; 0.500      ;
+; 0.351 ; RST_SYNC:rst_sync_i|meta_reg                                                                   ; RST_SYNC:rst_sync_i|reset_reg                                                                  ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.503      ;
+; 0.351 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.503      ;
+; 0.354 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.506      ;
+; 0.354 ; wb_ack                                                                                         ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.506      ;
+; 0.359 ; debug_reg[9]                                                                                   ; wb_dout[9]                                                                                     ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.359 ; debug_reg[17]                                                                                  ; wb_dout[17]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.511      ;
+; 0.360 ; debug_reg[16]                                                                                  ; wb_dout[16]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
+; 0.360 ; debug_reg[19]                                                                                  ; wb_dout[19]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.512      ;
+; 0.361 ; UART2WBM:uart2wbm_i|fsm_pstate.dout1                                                           ; UART2WBM:uart2wbm_i|fsm_pstate.dout2                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.databits                           ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.stopbit                            ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.513      ;
+; 0.361 ; UART2WBM:uart2wbm_i|fsm_pstate.wait4ack                                                        ; UART2WBM:uart2wbm_i|fsm_pstate.response                                                        ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.513      ;
+; 0.363 ; UART2WBM:uart2wbm_i|fsm_pstate.addr_high                                                       ; UART2WBM:uart2wbm_i|fsm_pstate.dout0                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.515      ;
+; 0.363 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.515      ;
+; 0.364 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[3]                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[3]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.516      ;
+; 0.364 ; UART2WBM:uart2wbm_i|fsm_pstate.dout0                                                           ; UART2WBM:uart2wbm_i|fsm_pstate.dout1                                                           ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.516      ;
+; 0.364 ; debug_reg[18]                                                                                  ; wb_dout[18]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.516      ;
+; 0.364 ; debug_reg[22]                                                                                  ; wb_dout[22]                                                                                    ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.516      ;
+; 0.366 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[1]                   ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[1]                   ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.518      ;
+; 0.367 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ; CLOCK_50     ; CLOCK_50    ; 0.000        ; 0.000      ; 0.519      ;
++-------+------------------------------------------------------------------------------------------------+------------------------------------------------------------------------------------------------+--------------+-------------+--------------+------------+------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Fast Model Minimum Pulse Width: 'CLOCK_50'                                                                                                                                         ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------------------------------------------------------------+
+; Slack  ; Actual Width ; Required Width ; Type             ; Clock    ; Clock Edge ; Target                                                                                         ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------------------------------------------------------------+
+; -1.380 ; 1.000        ; 2.380          ; Port Rate        ; CLOCK_50 ; Rise       ; CLOCK_50                                                                                       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|meta_reg                                                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|meta_reg                                                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|reset_reg                                                                  ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; RST_SYNC:rst_sync_i|reset_reg                                                                  ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|DIV_MARK                         ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|DIV_MARK                         ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[0]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[0]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[1]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[1]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[2]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[2]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[3]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[3]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[4]                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[4]                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|DEB_OUT            ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[0]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[1]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i|input_shreg[2]     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|DOUT_VLD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|DOUT_VLD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.databits                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.idle                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.startbit                          ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.stopbit                           ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[7]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_data[7]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|DIV_MARK       ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[1] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[2] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_TXD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_TXD                                     ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[1]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[0]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[1]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[2]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[3]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[4]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[5]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; Low Pulse Width  ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[6]                                   ;
+; -0.500 ; 0.500        ; 1.000          ; High Pulse Width ; CLOCK_50 ; Rise       ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[7]                                   ;
++--------+--------------+----------------+------------------+----------+------------+------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; 1.627 ; 1.627 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; -1.507 ; -1.507 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_TXD  ; CLOCK_50   ; 3.651 ; 3.651 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_TXD  ; CLOCK_50   ; 3.651 ; 3.651 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++--------------------------------------------------------------------------------+
+; Multicorner Timing Analysis Summary                                            ;
++------------------+----------+-------+----------+---------+---------------------+
+; Clock            ; Setup    ; Hold  ; Recovery ; Removal ; Minimum Pulse Width ;
++------------------+----------+-------+----------+---------+---------------------+
+; Worst-case Slack ; -2.502   ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+;  CLOCK_50        ; -2.502   ; 0.215 ; N/A      ; N/A     ; -1.380              ;
+; Design-wide TNS  ; -269.109 ; 0.0   ; 0.0      ; 0.0     ; -225.38             ;
+;  CLOCK_50        ; -269.109 ; 0.000 ; N/A      ; N/A     ; -225.380            ;
++------------------+----------+-------+----------+---------+---------------------+
+
+
++-----------------------------------------------------------------------+
+; Setup Times                                                           ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; 2.854 ; 2.854 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------------+
+; Hold Times                                                              ;
++-----------+------------+--------+--------+------------+-----------------+
+; Data Port ; Clock Port ; Rise   ; Fall   ; Clock Edge ; Clock Reference ;
++-----------+------------+--------+--------+------------+-----------------+
+; UART_RXD  ; CLOCK_50   ; -1.507 ; -1.507 ; Rise       ; CLOCK_50        ;
++-----------+------------+--------+--------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Clock to Output Times                                                 ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_TXD  ; CLOCK_50   ; 6.476 ; 6.476 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-----------------------------------------------------------------------+
+; Minimum Clock to Output Times                                         ;
++-----------+------------+-------+-------+------------+-----------------+
+; Data Port ; Clock Port ; Rise  ; Fall  ; Clock Edge ; Clock Reference ;
++-----------+------------+-------+-------+------------+-----------------+
+; UART_TXD  ; CLOCK_50   ; 3.651 ; 3.651 ; Rise       ; CLOCK_50        ;
++-----------+------------+-------+-------+------------+-----------------+
+
+
++-------------------------------------------------------------------+
+; Setup Transfers                                                   ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 1842     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
++-------------------------------------------------------------------+
+; Hold Transfers                                                    ;
++------------+----------+----------+----------+----------+----------+
+; From Clock ; To Clock ; RR Paths ; FR Paths ; RF Paths ; FF Paths ;
++------------+----------+----------+----------+----------+----------+
+; CLOCK_50   ; CLOCK_50 ; 1842     ; 0        ; 0        ; 0        ;
++------------+----------+----------+----------+----------+----------+
+Entries labeled "false path" only account for clock-to-clock false paths and not path-based false paths. As a result, actual path counts may be lower than reported.
+
+
+---------------
+; Report TCCS ;
+---------------
+No dedicated SERDES Transmitter circuitry present in device or used in design
+
+
+---------------
+; Report RSKM ;
+---------------
+No dedicated SERDES Receiver circuitry present in device or used in design
+
+
++------------------------------------------------+
+; Unconstrained Paths                            ;
++---------------------------------+-------+------+
+; Property                        ; Setup ; Hold ;
++---------------------------------+-------+------+
+; Illegal Clocks                  ; 0     ; 0    ;
+; Unconstrained Clocks            ; 0     ; 0    ;
+; Unconstrained Input Ports       ; 2     ; 2    ;
+; Unconstrained Input Port Paths  ; 2     ; 2    ;
+; Unconstrained Output Ports      ; 1     ; 1    ;
+; Unconstrained Output Port Paths ; 1     ; 1    ;
++---------------------------------+-------+------+
+
+
++------------------------------------+
+; TimeQuest Timing Analyzer Messages ;
++------------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit TimeQuest Timing Analyzer
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Wed Feb 01 20:07:55 2023
+Info: Command: quartus_sta md5-cracker -c md5-cracker
+Info: qsta_default_script.tcl version: #1
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (21077): Low junction temperature is 0 degrees C
+Info (21077): High junction temperature is 85 degrees C
+Info (332164): Evaluating HDL-embedded SDC commands
+    Info (332165): Entity RST_SYNC
+        Info (332166): set_false_path -to [get_registers {*RST_SYNC:*|meta_reg}] 
+Critical Warning (332012): Synopsys Design Constraints File file not found: 'md5-cracker.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
+Info (332142): No user constrained base clocks found in the design. Calling "derive_clocks -period 1.0"
+Info (332105): Deriving Clocks
+    Info (332105): create_clock -period 1.000 -name CLOCK_50 CLOCK_50
+Info: Found TIMEQUEST_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
+Info: Analyzing Slow Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -2.502
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -2.502      -269.109 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.391
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.391         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380      -225.380 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info: Analyzing Fast Model
+Critical Warning (332148): Timing requirements not met
+Info (332146): Worst-case setup slack is -0.671
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -0.671       -39.084 CLOCK_50 
+Info (332146): Worst-case hold slack is 0.215
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):     0.215         0.000 CLOCK_50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.380
+    Info (332119):     Slack End Point TNS Clock 
+    Info (332119): ========= ============= =====================
+    Info (332119):    -1.380      -225.380 CLOCK_50 
+Info (332001): The selected device family is not supported by the report_metastability command.
+Info (332102): Design is not fully constrained for setup requirements
+Info (332102): Design is not fully constrained for hold requirements
+Info: Quartus II 64-Bit TimeQuest Timing Analyzer was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4554 megabytes
+    Info: Processing ended: Wed Feb 01 20:07:56 2023
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

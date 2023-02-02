@@ -64,21 +64,25 @@ begin
         WB_DIN   => wb_dout
     );
 
+
+    cracker_we_sel <= '1' when wb_addr(7 downto 0) = X"FF" else '0';
+    cracker_we_we  <= wb_stb and wb_we and md5_we_sel;
+
     din_p : process (CLOCK_50)
     begin
         if (rising_edge(CLOCK_50)) then
             case wb_addr(7 downto 0) is
                 when X"FF" => -- set writestrobe
-                    if (md5_we_we = '1') then
+                    if (cracker_we_we = '1') then
                             if wb_din(0 downto 0) = "0" then
-                               md5_we <= '0';
+                               cracker_we <= '0';
                              else
-                               md5_we <= '1';
+                               cracker_we <= '1';
                              end if;
                           end if;
                 when others =>
-                    md5_address    <= wb_addr(7 downto 0);
-                          md5_write_data <= wb_din;
+                    cracker_address    <= wb_addr(7 downto 0);
+                    cracker_write_data <= wb_din;
             end case;
         end if;
     end process;
@@ -99,7 +103,7 @@ begin
                 when X"FF" =>
                     wb_dout <= X"DEADCAFE"; -- sw must beforehand send address and write value, and turn it off afterwards
                 when others =>
-                    wb_dout <= md5_read_data;
+                    wb_dout <= cracker_read_data;
             end case;
         end if;
     end process;

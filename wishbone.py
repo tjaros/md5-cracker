@@ -48,29 +48,18 @@ if __name__ == '__main__':
 
     print("\nREAD from 0x0:")
     rd = wb.read(0x0)
-    print("0x%02X" % rd)
+    print("0x%04X" % rd)
+    print("".join([chr(x) for x in bytearray(rd.to_bytes(4,"big"))]))
 
-    print("\nREAD from 0x4:")
-    rd = wb.read(0x4)
-    print("0x%02X" % rd)
+    print("\nREAD from 0x1:")
+    rd = wb.read(0x1)
+    print("0x%04X" % rd)
+    print("".join([chr(x) for x in bytearray(rd.to_bytes(4,"big"))]))
 
-    print("\nWRITE 0x12345678 to 0x4.")
-    wb.write(0x4,0x12345678)
-
-    print("\nREAD from 0x4:")
-    rd = wb.read(0x4)
-    print("0x%02X" % rd)
-
-    print("\nWRITE 0xABCDEF12 to 0x4.")
-    wb.write(0x4,0xABCDEF12)
-
-    print("\nREAD from 0x4:")
-    rd = wb.read(0x4)
-    print("0x%02X" % rd)
-
-    print("\nREAD from 0x8844:")
-    rd = wb.read(0x8844)
-    print("0x%02X" % rd)
+    print("\nREAD from 0x3:")
+    rd = wb.read(0x2)
+    print("0x%04X" % rd)
+    print("".join([chr(x) for x in bytearray(rd.to_bytes(4,"big"))]))
 
     wb.close()
     print("\nThe UART is closed.")

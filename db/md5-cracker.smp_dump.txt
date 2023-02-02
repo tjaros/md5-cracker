@@ -1,4 +1,10 @@
 
+State Machine - |TOP_UART2WB|md5:MD5_Hash|md5_core:core|md5_core_ctrl_reg
+Name md5_core_ctrl_reg.CTRL_IDLE md5_core_ctrl_reg.CTRL_LOOP md5_core_ctrl_reg.CTRL_PIPE 
+md5_core_ctrl_reg.CTRL_IDLE 0 0 0 
+md5_core_ctrl_reg.CTRL_PIPE 1 0 1 
+md5_core_ctrl_reg.CTRL_LOOP 1 1 0 
+
 State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|fsm_pstate
 Name fsm_pstate.din3 fsm_pstate.din2 fsm_pstate.din1 fsm_pstate.din0 fsm_pstate.response fsm_pstate.wait4ack fsm_pstate.request fsm_pstate.dout3 fsm_pstate.dout2 fsm_pstate.dout1 fsm_pstate.dout0 fsm_pstate.addr_high fsm_pstate.addr_low fsm_pstate.cmd 
 fsm_pstate.cmd 0 0 0 0 0 0 0 0 0 0 0 0 0 0 

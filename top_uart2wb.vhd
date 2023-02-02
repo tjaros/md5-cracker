@@ -26,9 +26,10 @@ architecture RTL of TOP_UART2WB is
     signal wb_ack        : std_logic;
     signal wb_din        : std_logic_vector(31 downto 0);
 
-    signal debug_reg_sel : std_logic;
-    signal debug_reg_we  : std_logic;
-    signal debug_reg     : std_logic_vector(31 downto 0);
+     -- That naming -_-
+    signal cracker_we_sel     : std_logic;
+    signal cracker_we_we      : std_logic;
+    signal cracker_we         : std_logic;
 
 begin
 
@@ -63,15 +64,22 @@ begin
         WB_DIN   => wb_dout
     );
 
-    debug_reg_sel <= '1' when (wb_addr = X"0004") else '0';
-    debug_reg_we  <= wb_stb and wb_we and debug_reg_sel;
-
-    debug_reg_p : process (CLOCK_50)
+    din_p : process (CLOCK_50)
     begin
         if (rising_edge(CLOCK_50)) then
-            if (debug_reg_we = '1') then
-                debug_reg <= wb_din;
-            end if;
+            case wb_addr(7 downto 0) is
+                when X"FF" => -- set writestrobe
+                    if (md5_we_we = '1') then
+                            if wb_din(0 downto 0) = "0" then
+                               md5_we <= '0';
+                             else
+                               md5_we <= '1';
+                             end if;
+                          end if;
+                when others =>
+                    md5_address    <= wb_addr(7 downto 0);
+                          md5_write_data <= wb_din;
+            end case;
         end if;
     end process;
 
@@ -87,13 +95,11 @@ begin
     wb_dout_reg_p : process (CLOCK_50)
     begin
         if (rising_edge(CLOCK_50)) then
-            case wb_addr is
-                when X"0000" =>
-                    wb_dout <= X"20210406";
-                when X"0004" =>
-                    wb_dout <= debug_reg;
+            case wb_addr(7 downto 0) is
+                when X"FF" =>
+                    wb_dout <= X"DEADCAFE"; -- sw must beforehand send address and write value, and turn it off afterwards
                 when others =>
-                    wb_dout <= X"DEADCAFE";
+                    wb_dout <= md5_read_data;
             end case;
         end if;
     end process;

@@ -1,3 +1,6 @@
 [submodule "uart-for-fpga"]
 	path = uart-for-fpga
 	url = https://github.com/jakubcabal/uart-for-fpga.git
+[submodule "md5"]
+	path = md5
+	url = https://github.com/Netnod/md5.git

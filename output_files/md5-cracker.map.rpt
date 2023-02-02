@@ -1,5 +1,5 @@
 Analysis & Synthesis report for md5-cracker
-Wed Feb 01 20:07:45 2023
+Wed Feb 01 22:19:51 2023
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -13,28 +13,30 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|fsm_pstate
-  9. State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate
- 10. State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate
- 11. Registers Protected by Synthesis
- 12. Registers Removed During Synthesis
- 13. General Register Statistics
- 14. Inverted Register Statistics
- 15. Multiplexer Restructuring Statistics (Restructuring Performed)
- 16. Source assignments for RST_SYNC:rst_sync_i
- 17. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i
- 18. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i
- 19. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i
- 20. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i
- 21. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i
- 22. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i
- 23. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i
- 24. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i
- 25. Port Connectivity Checks: "UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i"
- 26. Port Connectivity Checks: "UART2WBM:uart2wbm_i|UART:uart_i"
- 27. Port Connectivity Checks: "UART2WBM:uart2wbm_i"
- 28. Elapsed Time Per Partition
- 29. Analysis & Synthesis Messages
+  8. State Machine - |TOP_UART2WB|md5:MD5_Hash|md5_core:core|md5_core_ctrl_reg
+  9. State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|fsm_pstate
+ 10. State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate
+ 11. State Machine - |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate
+ 12. Registers Protected by Synthesis
+ 13. Registers Removed During Synthesis
+ 14. General Register Statistics
+ 15. Inverted Register Statistics
+ 16. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 17. Source assignments for RST_SYNC:rst_sync_i
+ 18. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i
+ 19. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i
+ 20. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i
+ 21. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_DEBOUNCER:\use_debouncer_g:debouncer_i
+ 22. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i
+ 23. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i
+ 24. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i
+ 25. Parameter Settings for User Entity Instance: UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i
+ 26. Port Connectivity Checks: "md5:MD5_Hash"
+ 27. Port Connectivity Checks: "UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i"
+ 28. Port Connectivity Checks: "UART2WBM:uart2wbm_i|UART:uart_i"
+ 29. Port Connectivity Checks: "UART2WBM:uart2wbm_i"
+ 30. Elapsed Time Per Partition
+ 31. Analysis & Synthesis Messages
 
 
 
@@ -60,15 +62,15 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Feb 01 20:07:45 2023           ;
+; Analysis & Synthesis Status        ; Successful - Wed Feb 01 22:19:51 2023           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; md5-cracker                                     ;
 ; Top-level Entity Name              ; TOP_UART2WB                                     ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 275                                             ;
-;     Total combinational functions  ; 141                                             ;
-;     Dedicated logic registers      ; 224                                             ;
-; Total registers                    ; 224                                             ;
+; Total logic elements               ; 2,694                                           ;
+;     Total combinational functions  ; 1,527                                           ;
+;     Dedicated logic registers      ; 1,558                                           ;
+; Total registers                    ; 1558                                            ;
 ; Total pins                         ; 4                                               ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
@@ -173,21 +175,23 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                  ;
-+-------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path          ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ; Library ;
-+-------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
-; common/rst_sync.vhd                       ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/common/rst_sync.vhd                       ;         ;
-; uart2wbm.vhd                              ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/uart2wbm.vhd                              ;         ;
-; uart-for-fpga/rtl/uart.vhd                ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/uart.vhd                ;         ;
-; uart-for-fpga/rtl/comp/uart_tx.vhd        ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_tx.vhd        ;         ;
-; uart-for-fpga/rtl/comp/uart_rx.vhd        ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_rx.vhd        ;         ;
-; uart-for-fpga/rtl/comp/uart_parity.vhd    ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_parity.vhd    ;         ;
-; uart-for-fpga/rtl/comp/uart_debouncer.vhd ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_debouncer.vhd ;         ;
-; uart-for-fpga/rtl/comp/uart_clk_div.vhd   ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_clk_div.vhd   ;         ;
-; top_uart2wb.vhd                           ; yes             ; User VHDL File  ; C:/Users/tjaro/projects/md5-cracker/top_uart2wb.vhd                           ;         ;
-+-------------------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++-------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path          ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                  ; Library ;
++-------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
+; md5.v                                     ; yes             ; User Verilog HDL File  ; C:/Users/tjaro/projects/md5-cracker/md5.v                                     ;         ;
+; md5/src/rtl/md5_core.v                    ; yes             ; User Verilog HDL File  ; C:/Users/tjaro/projects/md5-cracker/md5/src/rtl/md5_core.v                    ;         ;
+; common/rst_sync.vhd                       ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/common/rst_sync.vhd                       ;         ;
+; uart2wbm.vhd                              ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/uart2wbm.vhd                              ;         ;
+; uart-for-fpga/rtl/uart.vhd                ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/uart.vhd                ;         ;
+; uart-for-fpga/rtl/comp/uart_tx.vhd        ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_tx.vhd        ;         ;
+; uart-for-fpga/rtl/comp/uart_rx.vhd        ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_rx.vhd        ;         ;
+; uart-for-fpga/rtl/comp/uart_parity.vhd    ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_parity.vhd    ;         ;
+; uart-for-fpga/rtl/comp/uart_debouncer.vhd ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_debouncer.vhd ;         ;
+; uart-for-fpga/rtl/comp/uart_clk_div.vhd   ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/uart-for-fpga/rtl/comp/uart_clk_div.vhd   ;         ;
+; top_uart2wb.vhd                           ; yes             ; User VHDL File         ; C:/Users/tjaro/projects/md5-cracker/top_uart2wb.vhd                           ;         ;
++-------------------------------------------+-----------------+------------------------+-------------------------------------------------------------------------------+---------+
 
 
 +--------------------------------------------------------+
@@ -195,28 +199,28 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+----------+
 ; Resource                                    ; Usage    ;
 +---------------------------------------------+----------+
-; Estimated Total logic elements              ; 275      ;
+; Estimated Total logic elements              ; 2,694    ;
 ;                                             ;          ;
-; Total combinational functions               ; 141      ;
+; Total combinational functions               ; 1527     ;
 ; Logic element usage by number of LUT inputs ;          ;
-;     -- 4 input functions                    ; 65       ;
-;     -- 3 input functions                    ; 43       ;
-;     -- <=2 input functions                  ; 33       ;
+;     -- 4 input functions                    ; 1003     ;
+;     -- 3 input functions                    ; 447      ;
+;     -- <=2 input functions                  ; 77       ;
 ;                                             ;          ;
 ; Logic elements by mode                      ;          ;
-;     -- normal mode                          ; 137      ;
-;     -- arithmetic mode                      ; 4        ;
+;     -- normal mode                          ; 1269     ;
+;     -- arithmetic mode                      ; 258      ;
 ;                                             ;          ;
-; Total registers                             ; 224      ;
-;     -- Dedicated logic registers            ; 224      ;
+; Total registers                             ; 1558     ;
+;     -- Dedicated logic registers            ; 1558     ;
 ;     -- I/O registers                        ; 0        ;
 ;                                             ;          ;
 ; I/O pins                                    ; 4        ;
 ; Embedded Multiplier 9-bit elements          ; 0        ;
 ; Maximum fan-out node                        ; CLOCK_50 ;
-; Maximum fan-out                             ; 224      ;
-; Total fan-out                               ; 1082     ;
-; Average fan-out                             ; 2.93     ;
+; Maximum fan-out                             ; 1558     ;
+; Total fan-out                               ; 11702    ;
+; Average fan-out                             ; 3.79     ;
 +---------------------------------------------+----------+
 
 
@@ -225,7 +229,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                          ; Library Name ;
 +--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
-; |TOP_UART2WB                                           ; 141 (38)          ; 224 (65)     ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |TOP_UART2WB                                                                                 ; work         ;
+; |TOP_UART2WB                                           ; 1527 (105)        ; 1558 (74)    ; 0           ; 0            ; 0       ; 0         ; 4    ; 0            ; |TOP_UART2WB                                                                                 ; work         ;
 ;    |RST_SYNC:rst_sync_i|                               ; 0 (0)             ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|RST_SYNC:rst_sync_i                                                             ; work         ;
 ;    |UART2WBM:uart2wbm_i|                               ; 103 (42)          ; 157 (102)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|UART2WBM:uart2wbm_i                                                             ; work         ;
 ;       |UART:uart_i|                                    ; 61 (1)            ; 55 (2)       ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i                                                 ; work         ;
@@ -235,8 +239,22 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;             |UART_CLK_DIV:rx_clk_divider_i|            ; 8 (8)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i ; work         ;
 ;          |UART_TX:uart_tx_i|                           ; 29 (20)           ; 22 (17)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i                               ; work         ;
 ;             |UART_CLK_DIV:tx_clk_divider_i|            ; 9 (9)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i ; work         ;
+;    |md5:MD5_Hash|                                      ; 1319 (42)         ; 1325 (514)   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|md5:MD5_Hash                                                                    ; work         ;
+;       |md5_core:core|                                  ; 1277 (1277)       ; 811 (811)    ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP_UART2WB|md5:MD5_Hash|md5_core:core                                                      ; work         ;
 +--------------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+----------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------+
+; State Machine - |TOP_UART2WB|md5:MD5_Hash|md5_core:core|md5_core_ctrl_reg                                             ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+; Name                        ; md5_core_ctrl_reg.CTRL_IDLE ; md5_core_ctrl_reg.CTRL_LOOP ; md5_core_ctrl_reg.CTRL_PIPE ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
+; md5_core_ctrl_reg.CTRL_IDLE ; 0                           ; 0                           ; 0                           ;
+; md5_core_ctrl_reg.CTRL_PIPE ; 1                           ; 0                           ; 1                           ;
+; md5_core_ctrl_reg.CTRL_LOOP ; 1                           ; 1                           ; 0                           ;
++-----------------------------+-----------------------------+-----------------------------+-----------------------------+
 
 
 Encoding Type:  One-Hot
@@ -306,9 +324,10 @@ Encoding Type:  One-Hot
 +------------------------------------------------------------------------+----------------------------------------+
 ; Register name                                                          ; Reason for Removal                     ;
 +------------------------------------------------------------------------+----------------------------------------+
+; md5:MD5_Hash|md5_core:core|md5_core_ctrl_reg~9                         ; Lost fanout                            ;
 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_pstate.paritybit  ; Stuck at GND due to stuck port data_in ;
 ; UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|fsm_pstate.paritybit ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 2                                  ;                                        ;
+; Total Number of Removed Registers = 3                                  ;                                        ;
 +------------------------------------------------------------------------+----------------------------------------+
 
 
@@ -317,12 +336,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 224   ;
-; Number of registers using Synchronous Clear  ; 19    ;
-; Number of registers using Synchronous Load   ; 1     ;
-; Number of registers using Asynchronous Clear ; 2     ;
+; Total registers                              ; 1558  ;
+; Number of registers using Synchronous Clear  ; 115   ;
+; Number of registers using Synchronous Load   ; 143   ;
+; Number of registers using Asynchronous Clear ; 1327  ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 160   ;
+; Number of registers using Clock Enable       ; 1454  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -332,9 +351,10 @@ Encoding Type:  One-Hot
 +----------------------------------------+---------+
 ; Inverted Register                      ; Fan out ;
 +----------------------------------------+---------+
-; RST_SYNC:rst_sync_i|reset_reg          ; 36      ;
+; RST_SYNC:rst_sync_i|reset_reg          ; 1361    ;
 ; RST_SYNC:rst_sync_i|meta_reg           ; 1       ;
-; Total number of inverted registers = 2 ;         ;
+; md5:MD5_Hash|md5_core:core|ready_reg   ; 3       ;
+; Total number of inverted registers = 3 ;         ;
 +----------------------------------------+---------+
 
 
@@ -343,14 +363,21 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                                                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
+; 3:1                ; 128 bits  ; 256 LEs       ; 256 LEs              ; 0 LEs                  ; Yes        ; |TOP_UART2WB|md5:MD5_Hash|md5_core:core|d_reg[26]                                                           ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i|clk_div_cnt[4]                   ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[0]                              ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_bit_count[2]                              ;
 ; 4:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|rx_bit_count[2]                              ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[0] ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |TOP_UART2WB|md5:MD5_Hash|next_reg                                                                          ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i|clk_div_cnt[3] ;
 ; 4:1                ; 4 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i|clk_div_cnt[2] ;
 ; 5:1                ; 8 bits    ; 24 LEs        ; 24 LEs               ; 0 LEs                  ; Yes        ; |TOP_UART2WB|UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|tx_data[6]                                   ;
+; 7:1                ; 9 bits    ; 36 LEs        ; 36 LEs               ; 0 LEs                  ; Yes        ; |TOP_UART2WB|wb_dout[1]                                                                                     ;
+; 7:1                ; 22 bits   ; 88 LEs        ; 88 LEs               ; 0 LEs                  ; Yes        ; |TOP_UART2WB|wb_dout[8]                                                                                     ;
 ; 3:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |TOP_UART2WB|UART2WBM:uart2wbm_i|fsm_pstate                                                                 ;
 ; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |TOP_UART2WB|UART2WBM:uart2wbm_i|fsm_pstate                                                                 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |TOP_UART2WB|md5:MD5_Hash|md5_core:core|Mux102                                                              ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 320 LEs              ; 0 LEs                  ; No         ; |TOP_UART2WB|md5:MD5_Hash|md5_core:core|Mux31                                                               ;
+; 6:1                ; 32 bits   ; 128 LEs       ; 128 LEs              ; 0 LEs                  ; No         ; |TOP_UART2WB|md5:MD5_Hash|md5_core:core|md5_dp.lr[0]                                                        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------------------------------------------------------------+
 
 
@@ -455,6 +482,15 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++------------------------------------------+
+; Port Connectivity Checks: "md5:MD5_Hash" ;
++------+-------+----------+----------------+
+; Port ; Type  ; Severity ; Details        ;
++------+-------+----------+----------------+
+; cs   ; Input ; Info     ; Stuck at VCC   ;
++------+-------+----------+----------------+
+
+
 +-------------------------------------------------------------------------------------------+
 ; Port Connectivity Checks: "UART2WBM:uart2wbm_i|UART:uart_i|UART_CLK_DIV:os_clk_divider_i" ;
 +--------+-------+----------+---------------------------------------------------------------+
@@ -488,7 +524,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:04     ;
 +----------------+--------------+
 
 
@@ -498,9 +534,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Feb 01 20:07:44 2023
+    Info: Processing started: Wed Feb 01 22:19:46 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off md5-cracker -c md5-cracker
 Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 1 design units, including 1 entities, in source file md5.v
+    Info (12023): Found entity 1: md5
+Info (12021): Found 1 design units, including 1 entities, in source file md5/src/rtl/md5_core.v
+    Info (12023): Found entity 1: md5_core
 Info (12021): Found 2 design units, including 1 entities, in source file common/rst_sync.vhd
     Info (12022): Found design unit 1: RST_SYNC-RTL
     Info (12023): Found entity 1: RST_SYNC
@@ -525,8 +565,6 @@ Info (12021): Found 2 design units, including 1 entities, in source file uart-fo
 Info (12021): Found 2 design units, including 1 entities, in source file uart-for-fpga/rtl/comp/uart_clk_div.vhd
     Info (12022): Found design unit 1: UART_CLK_DIV-RTL
     Info (12023): Found entity 1: UART_CLK_DIV
-Info (12021): Found 1 design units, including 1 entities, in source file md5_pipelined/md5core.v
-    Info (12023): Found entity 1: Md5Core
 Info (12021): Found 2 design units, including 1 entities, in source file top_uart2wb.vhd
     Info (12022): Found design unit 1: TOP_UART2WB-RTL
     Info (12023): Found entity 1: TOP_UART2WB
@@ -540,18 +578,23 @@ Info (12128): Elaborating entity "UART_RX" for hierarchy "UART2WBM:uart2wbm_i|UA
 Info (12128): Elaborating entity "UART_CLK_DIV" for hierarchy "UART2WBM:uart2wbm_i|UART:uart_i|UART_RX:uart_rx_i|UART_CLK_DIV:rx_clk_divider_i"
 Info (12128): Elaborating entity "UART_TX" for hierarchy "UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i"
 Info (12128): Elaborating entity "UART_CLK_DIV" for hierarchy "UART2WBM:uart2wbm_i|UART:uart_i|UART_TX:uart_tx_i|UART_CLK_DIV:tx_clk_divider_i"
+Info (12128): Elaborating entity "md5" for hierarchy "md5:MD5_Hash"
+Info (12128): Elaborating entity "md5_core" for hierarchy "md5:MD5_Hash|md5_core:core"
+Info (276014): Found 1 instances of uninferred RAM logic
+    Info (276004): RAM logic "md5:MD5_Hash|md5_core:core|Ram0" is uninferred due to inappropriate RAM size
 Info (13000): Registers with preset signals will power-up high
 Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 279 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 2698 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 3 input pins
     Info (21059): Implemented 1 output pins
-    Info (21061): Implemented 275 logic cells
+    Info (21061): Implemented 2694 logic cells
 Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4637 megabytes
-    Info: Processing ended: Wed Feb 01 20:07:45 2023
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Peak virtual memory: 4643 megabytes
+    Info: Processing ended: Wed Feb 01 22:19:51 2023
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:06
 
 

@@ -30,6 +30,9 @@ architecture RTL of TOP_UART2WB is
     signal cracker_we_sel     : std_logic;
     signal cracker_we_we      : std_logic;
     signal cracker_we         : std_logic;
+	 signal cracker_address    : std_logic_vector(7  downto 0);
+	 signal cracker_read_data  : std_logic_vector(31 downto 0);
+	 signal cracker_write_data : std_logic_vector(31 downto 0);
 
 begin
 
@@ -63,10 +66,20 @@ begin
         WB_ACK   => wb_ack,
         WB_DIN   => wb_dout
     );
+	 
+	 cracker_i : entity work.CRACKER
+	 port map (
+	   clk_i => CLOCK_50,
+		rst   => reset,
+		we    => cracker_we,
+		addr  => cracker_address,
+		read_data => cracker_read_data,
+		write_data => cracker_write_data
+	 );
 
 
     cracker_we_sel <= '1' when wb_addr(7 downto 0) = X"FF" else '0';
-    cracker_we_we  <= wb_stb and wb_we and md5_we_sel;
+    cracker_we_we  <= wb_stb and wb_we and cracker_we_sel;
 
     din_p : process (CLOCK_50)
     begin

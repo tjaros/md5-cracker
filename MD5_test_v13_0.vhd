@@ -441,7 +441,7 @@ end generate PWGEN2;
 
 ------------------------- HASH GENERATION------------------------------------------------------------------------
 
-HASHGEN: for i in 0 to 25 generate 
+HASHGEN: for i in 0 to 2 generate 
 U3: md5_core port map (clkin => clk, reset => reset, din => pw_guess(i), pw_del => pw_del(i), cvout => md5hash_gen(i));
 hash_compa : process(clk, reset)
     begin    

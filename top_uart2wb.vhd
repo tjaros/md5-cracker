@@ -8,7 +8,9 @@ entity TOP_UART2WB is
         RST_BTN_N : in  std_logic; -- low active reset button
         -- UART INTERFACE
         UART_RXD  : in  std_logic;
-        UART_TXD  : out std_logic
+        UART_TXD  : out std_logic;
+		  -- DEBUG LEDS
+		  LEDG : out std_logic_vector(7 downto 0)
     );
 end entity;
 
@@ -74,9 +76,9 @@ begin
 		we    => cracker_we,
 		addr  => cracker_address,
 		read_data => cracker_read_data,
-		write_data => cracker_write_data
+		write_data => cracker_write_data,
+		leds => LEDG
 	 );
-
 
     cracker_we_sel <= '1' when wb_addr(7 downto 0) = X"FF" else '0';
     cracker_we_we  <= wb_stb and wb_we and cracker_we_sel;
@@ -87,12 +89,12 @@ begin
             case wb_addr(7 downto 0) is
                 when X"FF" => -- set writestrobe
                     if (cracker_we_we = '1') then
-                            if wb_din(0 downto 0) = "0" then
-                               cracker_we <= '0';
-                             else
-                               cracker_we <= '1';
-                             end if;
-                          end if;
+                      if wb_din(0 downto 0) = "0" then
+                        cracker_we <= '0';
+                      else
+                        cracker_we <= '1';
+                      end if;
+                    end if;
                 when others =>
                     cracker_address    <= wb_addr(7 downto 0);
                     cracker_write_data <= wb_din;

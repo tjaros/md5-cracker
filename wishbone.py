@@ -8,6 +8,7 @@
 #-------------------------------------------------------------------------------
 
 import serial
+import time
 
 byteorder="little"
 
@@ -56,10 +57,76 @@ if __name__ == '__main__':
     print("0x%04X" % rd)
     print("".join([chr(x) for x in bytearray(rd.to_bytes(4,"big"))]))
 
-    print("\nREAD from 0x3:")
-    rd = wb.read(0x2)
+
+    # Enable writing
+    wb.write(0xff, 0xffffffff)
+
+    # Now we write target digest MD5("ab") = 187ef4436122d1cc2f40dc2b92f0eba0
+
+    # 0 187ef443
+    # 1 6122d1cc
+    # 2 2f40dc2b
+    # 3 92f0eba0
+    wb.write(0x10, 0x187ef443)
+    wb.write(0x11, 0x6122d1cc)
+    wb.write(0x12, 0x2f40dc2b)
+    wb.write(0x13, 0x92f0eba0)
+
+    # Disable writing
+    wb.write(0xff, 0x0)
+
+    # This didnt work so there is chance i f* up the design
+    print("\nREAD from 0x10:")
+    rd = wb.read(0x10)
     print("0x%04X" % rd)
-    print("".join([chr(x) for x in bytearray(rd.to_bytes(4,"big"))]))
+
+    print("\nREAD from 0x11:")
+    rd = wb.read(0x11)
+    print("0x%04X" % rd)
+
+    print("\nREAD from 0x12:")
+    rd = wb.read(0x12)
+    print("0x%04X" % rd)
+
+    print("\nREAD from 0x13:")
+    rd = wb.read(0x13)
+    print("0x%04X" % rd)
+
+    print("\nREAD from 0xff:")
+    rd = wb.read(0xff)
+    print("0x%04X" % rd)
+
+
+    # Suppose it did work, abc should be cracked very fast
+
+    # Enable writing
+    wb.write(0xff, 0xffffffff)
+    # crack_en
+    wb.write(0x0f, 0xffffffff)
+
+    wb.write(0xff, 0x0)
+
+
+    # We now busywait
+    rd = wb.read(0x0e)
+    while rd == 0:
+        time.sleep(1)
+        rd = wb.read(0x0e)
+
+    print(35 * '=' + "\nFound\n" + 35 * '=')
+
+    print("\nREAD from 0x20:")
+    rd = wb.read(0x20)
+    print("0x%04X" % rd)
+
+    print("\nREAD from 0x21:")
+    rd = wb.read(0x21)
+    print("0x%04X" % rd)
+
+
+
+
+
 
     wb.close()
     print("\nThe UART is closed.")

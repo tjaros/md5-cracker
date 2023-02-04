@@ -431,11 +431,11 @@ target_md5hash <= hashin4 & hashin3 & hashin2 & hashin1;
 
 ------------------------- guess pw generation pw_guess -----------------------------------------------------------
 
-PWGEN: for i in 0 to 12 generate --A 2 Z
-U1: pw_gen port map (clk => clk, reset => reset, bl => to_unsigned(65+2*i, 8), pw_guess => pw_guess(i));
-end generate PWGEN;
-PWGEN2: for i in 0 to 12 generate --a 2 z
-U2: pw_gen port map (clk => clk, reset => reset, bl => to_unsigned(97+2*i, 8), pw_guess => pw_guess(13+i));
+--PWGEN: for i in 0 to 1 generate --A 2 Z
+--U1: pw_gen port map (clk => clk, reset => reset, bl => to_unsigned(65+2*i, 8), pw_guess => pw_guess(i));
+--end generate PWGEN;
+PWGEN2: for i in 0 to 2 generate --a 2 z
+U2: pw_gen port map (clk => clk, reset => reset, bl => to_unsigned(97+2*i, 8), pw_guess => pw_guess(i));
 end generate PWGEN2;
 ----------------------- End of guess pw generation---------------------------------------------------------------
 

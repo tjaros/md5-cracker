@@ -1,13 +1,5 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="md5-cracker">
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage2:\GEN2:0:U2|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_4gm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage3:\GEN3:3:U3|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_rim.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage3:\GEN3:9:U3|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_7gm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage1:\GEN1:2:U1|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_ufm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage2:\GEN2:1:U2|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_9jm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage3:\GEN3:0:U3|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_sfm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage4:\GEN4:0:U3|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_ohm.tdf"/>
-		<CBX_INST_ENTRY INSTANCE_NAME="|TOP_UART2WB|CRACKER:cracker_i|MD5_test:md5_test_inst|md5_core:\HASHGEN:0:U3|md5_stage4:\GEN4:8:U3|altshift_taps:din_out_rtl_0" CBX_FILE_NAME="shift_taps_9gm.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

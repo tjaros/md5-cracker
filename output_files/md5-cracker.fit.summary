@@ -1,0 +1,16 @@
+Fitter Status : Successful - Sat Feb 04 20:16:55 2023
+Quartus II 64-Bit Version : 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition
+Revision Name : md5-cracker
+Top-level Entity Name : neo430_test
+Family : Cyclone II
+Device : EP2C35F672C6
+Timing Models : Final
+Total logic elements : 3,891 / 33,216 ( 12 % )
+    Total combinational functions : 2,923 / 33,216 ( 9 % )
+    Dedicated logic registers : 2,291 / 33,216 ( 7 % )
+Total registers : 2291
+Total pins : 12 / 475 ( 3 % )
+Total virtual pins : 0
+Total memory bits : 180,480 / 483,840 ( 37 % )
+Embedded Multiplier 9-bit elements : 0 / 70 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

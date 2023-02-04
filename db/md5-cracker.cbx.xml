@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="md5-cracker">
+		<CBX_INST_ENTRY INSTANCE_NAME="|neo430_test|neo430_top:neo430_top_test_inst|neo430_boot_rom:\neo430_boot_rom_inst_true:neo430_boot_rom_inst|altsyncram:Mux15_rtl_0" CBX_FILE_NAME="altsyncram_st01.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|neo430_test|neo430_top:neo430_top_test_inst|neo430_dmem:neo430_dmem_inst|altsyncram:dmem_file_h_rtl_0" CBX_FILE_NAME="altsyncram_4rd1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|neo430_test|neo430_top:neo430_top_test_inst|neo430_dmem:neo430_dmem_inst|altsyncram:dmem_file_l_rtl_0" CBX_FILE_NAME="altsyncram_4rd1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|neo430_test|neo430_top:neo430_top_test_inst|neo430_imem:neo430_imem_inst|altsyncram:imem_file_ram_h_rtl_0" CBX_FILE_NAME="altsyncram_krd1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|neo430_test|neo430_top:neo430_top_test_inst|neo430_imem:neo430_imem_inst|altsyncram:imem_file_ram_l_rtl_0" CBX_FILE_NAME="altsyncram_krd1.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|neo430_test|neo430_top:neo430_top_test_inst|neo430_cpu:neo430_cpu_inst|neo430_reg_file:neo430_reg_file_inst|altsyncram:reg_file_rtl_0" CBX_FILE_NAME="altsyncram_a8c1.tdf"/>
+	</PROJECT>
+</LOG_ROOT>
